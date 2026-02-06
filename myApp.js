@@ -24,6 +24,11 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-
+app.get('/now', (req, res, next) => {
+  req.time = new Date().toString()
+  next();
+}, (req, res) => {
+    res.json({time: req.time})
+})
  module.exports = app;
 console.log(process.env.MESSAGE_STYLE);
