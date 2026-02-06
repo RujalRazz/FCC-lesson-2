@@ -20,6 +20,28 @@ app.use((req, res, next) => {
     console.log(`${req.method} ${req.path} - ${req.ip}`)
     next()
 })  
+
+app.get('/:word/echo', (req, res) => {
+    const word = req.params.word
+  res.json({echo: word})
+
+})
+
+app.get('/name', (req, res) => {
+  const firstName = req.query.first;
+  const lastName = req.query.last;
+
+  
+  if (firstName && lastName) {
+    const fullName = `${firstName} ${lastName}`;
+    
+    res.json({ name: 'firstname lastname'});
+  } else {
+    
+    res.status(400).json({ error: 'Missing first or last name query parameters.' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
