@@ -35,7 +35,7 @@ app.get('/name', (req, res) => {
   if (firstName && lastName) {
     const fullName = `${firstName} ${lastName}`;
     
-    res.json({ name: 'firstname lastname'});
+    res.json({ name: fullName});
   } else {
     
     res.status(400).json({ error: 'Missing first or last name query parameters.' });
