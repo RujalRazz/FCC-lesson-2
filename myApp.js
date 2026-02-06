@@ -30,4 +30,4 @@ app.get('/now', (req, res, next) => {
 }, (req, res) => {
     res.json({time: req.time})
 })
- module.exports = app;
+module.exports = app;
